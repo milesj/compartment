@@ -101,6 +101,10 @@ describe('Compartment', function() {
           name: 'h'
         }
       });
+
+      chain = compartment.buildChain('h', ['lib', 'tmp']).chain;
+
+      expect(_.keys(chain)).to.deep.equal(['a', 'b', 'e', 'f', 'h']);
     });
 
     it('should sort by priority', function() {
@@ -250,6 +254,40 @@ describe('Compartment', function() {
       compartment.removeComponent('wtf');
 
       expect(compartment.manifest.wtf).to.be.an('undefined');
+    });
+
+    it('should return requires', function() {
+      compartment.loadManifest(__dirname + '/manifest.json');
+
+      expect(compartment.getRequires('h')).to.deep.equal({
+        b: {
+          category: 'lib',
+          require: ['a'],
+          source: {
+            css: ['b.css']
+          }
+        },
+        e: {
+          category: 'lib',
+          provide: 'f',
+          source: {
+            css: ['e.css']
+          }
+        }
+      })
+    });
+
+    it('should return provides', function() {
+      compartment.loadManifest(__dirname + '/manifest.json');
+
+      expect(compartment.getProvides('e')).to.deep.equal({
+        f: {
+          category: 'lib',
+          source: {
+            css: ['f.css']
+          }
+        }
+      })
     });
   });
 
