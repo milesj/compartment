@@ -1,25 +1,30 @@
 {
-  "name": "component-tree",
+  "name": "compartment",
   "version": "0.0.0",
-  "description": "A dependency manager for components.",
-  "main": "lib/component-tree.js",
-  "repository": {
-    "type": "git",
-    "url": "git://github.com/milesj/component-tree.git"
-  },
+  "description": "Some sort of component manager, dependency resolver, and package builder.",
   "keywords": [
     "dependency",
     "tree",
     "component",
     "manager",
-    "packager"
+    "packager",
+    "builder"
   ],
   "author": "Miles Johnson",
   "license": "MIT",
+  "main": "lib/compartment.js",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/milesj/compartment.git"
+  },
   "bugs": {
-    "url": "https://github.com/milesj/component-tree/issues"
+    "url": "https://github.com/milesj/compartment/issues"
+  },
+  "dependencies": {
+    "lodash": "*"
   },
   "devDependencies": {
-    "lodash": "*"
+    "mocha": "*",
+    "chai": "*"
   }
 }
