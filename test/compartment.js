@@ -159,6 +159,24 @@ describe('Compartment', function() {
         '/js/g.js'
       ]);
     });
+
+    it('should not fail on components with no sources', function() {
+      compartment.addComponents({
+        a: {
+          category: 'foo'
+        },
+        b: {
+          category: 'bar',
+          source: {
+            js: ['b.js']
+          }
+        }
+      }).addType('js');
+
+      var paths = compartment.buildChain().getPaths('js');
+
+      expect(paths).to.deep.equal(['b.js'])
+    });
   });
 
   describe('types', function() {
