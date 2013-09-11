@@ -1,9 +1,11 @@
 {
   "name": "compartment",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "Some sort of dependency graph, component manager, and package builder.",
   "keywords": [
+    "compartment",
     "dependency",
+    "graph",
     "tree",
     "component",
     "manager",
@@ -15,7 +17,7 @@
   "main": "lib/compartment.js",
   "repository": {
     "type": "git",
-    "url": "git://github.com/milesj/compartment.git"
+    "url": "https://github.com/milesj/compartment"
   },
   "bugs": {
     "url": "https://github.com/milesj/compartment/issues"
