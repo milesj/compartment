@@ -1,7 +1,7 @@
 {
   "name": "compartment",
   "version": "0.0.0",
-  "description": "Some sort of component manager, dependency resolver, and package builder.",
+  "description": "Some sort of dependency graph, component manager, and package builder.",
   "keywords": [
     "dependency",
     "tree",

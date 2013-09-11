@@ -1,0 +1,55 @@
+{
+  "a": {
+    "category": "lib",
+    "source": {
+      "css": ["a.css"]
+    }
+  },
+  "b": {
+    "category": "lib",
+    "require": ["a"],
+    "source": {
+      "css": ["b.css"]
+    }
+  },
+  "c": {
+    "category": "lib",
+    "source": {
+      "css": ["c.css"]
+    }
+  },
+  "d": {
+    "category": "lib",
+    "require": ["a"],
+    "source": {
+      "css": ["d.css"]
+    }
+  },
+  "e": {
+    "category": "lib",
+    "provide": ["f"],
+    "source": {
+      "css": ["e.css"]
+    }
+  },
+  "f": {
+    "category": "lib",
+    "source": {
+      "css": ["f.css"]
+    }
+  },
+  "g": {
+    "category": "tmp",
+    "source": {
+      "js": ["g.js"]
+    }
+  },
+  "h": {
+    "category": "tmp",
+    "require": ["b", "e"],
+    "source": {
+      "css": ["h.css"],
+      "js": ["g.js"]
+    }
+  }
+}

@@ -9,79 +9,25 @@
 
 process.env.NODE_ENV = "testing";
 
-var _ = require('lodash');
-var expect = require('chai').expect;
-var compartment = require('../lib/compartment');
+var _ = require('lodash'),
+    expect = require('chai').expect,
+    comp = require('../lib/compartment'),
+    compartment;
 
 beforeEach(function() {
+  compartment = new comp();
   compartment.clearManifest();
 });
 
 describe('Compartment', function() {
 
   describe('building', function() {
-    var manifest = {
-      a: {
-        category: 'lib',
-        source: {
-          css: ['a.css']
-        }
-      },
-      b: {
-        category: 'lib',
-        require: ['a'],
-        source: {
-          css: ['b.css']
-        }
-      },
-      c: {
-        category: 'lib',
-        source: {
-          css: ['c.css']
-        }
-      },
-      d: {
-        category: 'lib',
-        require: ['a'],
-        source: {
-          css: ['d.css']
-        }
-      },
-      e: {
-        category: 'lib',
-        provide: ['f'],
-        source: {
-          css: ['e.css']
-        }
-      },
-      f: {
-        category: 'lib',
-        source: {
-          css: ['f.css']
-        }
-      },
-      g: {
-        category: 'tmp',
-        source: {
-          js: ['g.js']
-        }
-      },
-      h: {
-        category: 'tmp',
-        require: ['b', 'e'],
-        source: {
-          css: ['h.css'],
-          js: ['g.js']
-        }
-      }
-    };
-
     it('should build using the whitelist and resolve dependencies', function() {
-      compartment.setManifest(manifest);
+      compartment.loadManifest(__dirname + '/manifest.json');
 
-      var tree = compartment.buildTree(['h']).tree;
+      var chain = compartment.buildChain(['h']).chain;
 
-      expect(tree).to.deep.equal({
+      expect(chain).to.deep.equal({
         a: {
           category: 'lib',
           source: {
@@ -125,19 +71,19 @@ describe('Compartment', function() {
     });
 
     it('should build all when no argument passed', function() {
-      compartment.setManifest(manifest);
+      compartment.loadManifest(__dirname + '/manifest.json');
 
-      var tree = compartment.buildTree().tree;
+      var chain = compartment.buildChain().chain;
 
-      expect(_.keys(tree)).to.deep.equal(['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h']);
+      expect(_.keys(chain)).to.deep.equal(['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h']);
     });
 
     it('should filter by category', function() {
-      compartment.setManifest(manifest);
+      compartment.loadManifest(__dirname + '/manifest.json');
 
-      var tree = compartment.buildTree(null, 'tmp').tree;
+      var chain = compartment.buildChain(null, 'tmp').chain;
 
-      expect(tree).to.deep.equal({
+      expect(chain).to.deep.equal({
         g: {
           category: 'tmp',
           source: {
@@ -183,18 +129,18 @@ describe('Compartment', function() {
         }
       });
 
-      var tree = compartment.buildTree().tree;
+      var chain = compartment.buildChain().chain;
 
       // TODO SORTING
-      //expect(_.keys(tree)).to.deep.equal(['c', 'a', 'b']);
+      //expect(_.keys(chain)).to.deep.equal(['c', 'a', 'b']);
     });
 
     it('should return the correct type paths', function() {
-      compartment.setManifest(manifest);
+      compartment.loadManifest(__dirname + '/manifest.json');
       compartment.addType('js', '/js/');
       compartment.addType('css', '/css/');
 
-      var paths = compartment.buildTree('h').getPaths('css');
+      var paths = compartment.buildChain('h').getPaths('css');
 
       expect(paths).to.deep.equal([
         '/css/a.css',
