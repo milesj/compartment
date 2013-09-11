@@ -1,0 +1,25 @@
+{
+    "name": "component-tree",
+    "version": "0.0.0",
+    "description": "A dependency manager for components.",
+    "main": "lib/component-tree.js",
+    "repository": {
+        "type": "git",
+        "url": "git://github.com/milesj/component-tree.git"
+    },
+    "keywords": [
+        "dependency",
+        "tree",
+        "component",
+        "manager",
+        "packager"
+    ],
+    "author": "Miles Johnson",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/milesj/component-tree/issues"
+    },
+    "devDependencies": {
+        "lodash": "*"
+    }
+}
