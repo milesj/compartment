@@ -1,6 +1,6 @@
 {
   "name": "compartment",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Some sort of dependency graph, component manager, and package builder.",
   "keywords": [
     "compartment",
@@ -12,7 +12,10 @@
     "packager",
     "builder"
   ],
-  "author": "Miles Johnson",
+  "author": {
+    "name": "Miles Johnson",
+    "url": "http://milesj.me"
+  },
   "license": "MIT",
   "main": "lib/compartment.js",
   "repository": {
