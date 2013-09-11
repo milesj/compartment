@@ -103,18 +103,18 @@ describe('Compartment', function() {
       });
     });
 
-    it('should order by number', function() {
+    it('should sort by priority', function() {
       compartment.addComponents({
         a: {
           category: 'lib',
-          order: 3,
+          priority: 3,
           source: {
             css: ['a.css']
           }
         },
         b: {
           category: 'lib',
-          order: 8,
+          priority: 8,
           require: ['a'],
           source: {
             css: ['b.css']
@@ -122,7 +122,7 @@ describe('Compartment', function() {
         },
         c: {
           category: 'lib',
-          order: 2,
+          priority: 2,
           source: {
             css: ['c.css']
           }
@@ -131,8 +131,7 @@ describe('Compartment', function() {
 
       var chain = compartment.buildChain().chain;
 
-      // TODO SORTING
-      //expect(_.keys(chain)).to.deep.equal(['c', 'a', 'b']);
+      expect(_.keys(chain)).to.deep.equal(['c', 'a', 'b']);
     });
 
     it('should return the correct type paths', function() {
@@ -196,7 +195,7 @@ describe('Compartment', function() {
           category: 'html',
           require: [],
           provide: [],
-          order: null,
+          priority: null,
           source: {}
         }
       });
@@ -208,7 +207,7 @@ describe('Compartment', function() {
           category: 'css',
           require: ['bar'],
           provide: ['baz'],
-          order: 1,
+          priority: 1,
           source: {
             css: ['/css/']
           }
@@ -217,7 +216,7 @@ describe('Compartment', function() {
           category: 'js',
           require: [],
           provide: ['baz'],
-          order: 2,
+          priority: 2,
           source: {
             css: ['/js/']
           }
@@ -229,7 +228,7 @@ describe('Compartment', function() {
           category: 'css',
           require: ['bar'],
           provide: ['baz'],
-          order: 1,
+          priority: 1,
           source: {
             css: ['/css/']
           }
@@ -238,7 +237,7 @@ describe('Compartment', function() {
           category: 'js',
           require: [],
           provide: ['baz'],
-          order: 2,
+          priority: 2,
           source: {
             css: ['/js/']
           }
