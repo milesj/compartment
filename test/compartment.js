@@ -33,7 +33,7 @@ describe('Compartment', function() {
           source: {
             css: ['a.css']
           },
-          name: 'a'
+          key: 'a'
         },
         b: {
           category: 'lib',
@@ -41,7 +41,7 @@ describe('Compartment', function() {
           source: {
             css: ['b.css']
           },
-          name: 'b'
+          key: 'b'
         },
         e: {
           category: 'lib',
@@ -49,14 +49,14 @@ describe('Compartment', function() {
           source: {
             css: ['e.css']
           },
-          name: 'e'
+          key: 'e'
         },
         f: {
           category: 'lib',
           source: {
             css: ['f.css']
           },
-          name: 'f'
+          key: 'f'
         },
         h: {
           category: 'tmp',
@@ -65,7 +65,7 @@ describe('Compartment', function() {
             css: ['h.css'],
             js: ['g.js']
           },
-          name: 'h'
+          key: 'h'
         }
       });
     });
@@ -89,7 +89,7 @@ describe('Compartment', function() {
           source: {
             js: ['g.js']
           },
-          name: 'g'
+          key: 'g'
         },
         h: {
           category: 'tmp',
@@ -98,7 +98,7 @@ describe('Compartment', function() {
             css: ['h.css'],
             js: ['g.js']
           },
-          name: 'h'
+          key: 'h'
         }
       });
 
