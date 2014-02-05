@@ -30,9 +30,10 @@ graph.addTypes({
 
 Either load the list of components from a manifest file, or define manually. Each component supports the following properties:
 
+* name - Name of component
 * category - The type of component
-* requires - A list of other components that this component requires
-* provides - A list of other components that this component includes
+* require - A list of other components that this component requires
+* provide - A list of other components that this component includes
 * priority - The order in which to sort components in the chain
 * source - An object mapping of types (defined above) to a list of values
 
@@ -48,7 +49,7 @@ graph.addComponents({
     },
     buttonGroup: {
         category: 'component',
-        requires: ['button'],
+        require: ['button'],
         source: {
             css: ['button-group.css']
         }
@@ -76,4 +77,12 @@ Return a merged list of sources based on the type.
 ```javascript
 graph.buildChain(['buttonGroup']).getPaths('css');
 // ['/src/css/button.css', '/src/css/button-group.css']
+```
+
+### Running Tests ###
+
+Run the following command in the project root to run all tests.
+
+```bash
+mocha
 ```
