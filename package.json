@@ -25,9 +25,6 @@
   "bugs": {
     "url": "https://github.com/milesj/compartment/issues"
   },
-  "dependencies": {
-    "lodash": "*"
-  },
   "devDependencies": {
     "mocha": "*",
     "chai": "*"

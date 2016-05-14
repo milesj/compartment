@@ -9,8 +9,7 @@
 
 process.env.NODE_ENV = "testing";
 
-var _ = require('lodash'),
-    expect = require('chai').expect,
+var expect = require('chai').expect,
     comp = require('../lib/compartment'),
     compartment;
 
@@ -75,7 +74,7 @@ describe('Compartment', function() {
 
       var chain = compartment.buildChain().chain;
 
-      expect(_.keys(chain)).to.deep.equal(['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h']);
+      expect(Object.keys(chain)).to.deep.equal(['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h']);
     });
 
     it('should filter by category', function() {
@@ -104,7 +103,7 @@ describe('Compartment', function() {
 
       chain = compartment.buildChain('h', ['lib', 'tmp']).chain;
 
-      expect(_.keys(chain)).to.deep.equal(['a', 'b', 'e', 'f', 'h']);
+      expect(Object.keys(chain)).to.deep.equal(['a', 'b', 'e', 'f', 'h']);
     });
 
     it('should sort by priority', function() {
@@ -135,7 +134,7 @@ describe('Compartment', function() {
 
       var chain = compartment.buildChain().chain;
 
-      expect(_.keys(chain)).to.deep.equal(['c', 'a', 'b']);
+      expect(Object.keys(chain)).to.deep.equal(['c', 'a', 'b']);
     });
 
     it('should return the correct type paths', function() {
@@ -199,8 +198,6 @@ describe('Compartment', function() {
       });
 
       expect(compartment.types).to.deep.equal({
-        js: '/path',
-        css: '',
         foo: '/foo',
         bar: '/bar'
       });
@@ -287,7 +284,7 @@ describe('Compartment', function() {
         },
         e: {
           category: 'lib',
-          provide: 'f',
+          provide: ['f'],
           source: {
             css: ['e.css']
           }
