@@ -19,8 +19,8 @@ npm install
 Include the library into a Node script by using require. This will return a class which can be used to instantiate objects.
 
 ```javascript
-var compartment = require('compartment');
-var graph = new compartment();
+var Compartment = require('compartment');
+var graph = new Compartment();
 ```
 
 ## Defining Types ##

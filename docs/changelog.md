@@ -1,5 +1,10 @@
 # Changelog #
 
+## 0.3.0 ##
+
+* Removed lodash dependency
+* Updated to use latest Node.js syntax
+
 ## 0.2.0 ##
 
 * Added `Compartment.prototype.getComponent()`

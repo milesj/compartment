@@ -1,4 +1,4 @@
-# Compartment v0.2.0 #
+# Compartment v0.3.0 #
 
 Compartment is part dependency graph, part component manager, part package builder, all handled through a manifest file.
 The manifest simply stores a list of components and their dependency on other components from the same manifest.
@@ -15,8 +15,8 @@ However, Compartment is pretty abstract and can be used in any way possible.
 Require the module and instantiate a new instance.
 
 ```javascript
-var compartment = require('compartment'),
-    graph = new compartment();
+var Compartment = require('compartment'),
+    graph = new Compartment();
 ```
 
 Define the types of files the graph will support.

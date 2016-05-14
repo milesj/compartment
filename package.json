@@ -1,6 +1,6 @@
 {
   "name": "compartment",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "A type of dependency graph, component manager, and package builder.",
   "keywords": [
     "compartment",
